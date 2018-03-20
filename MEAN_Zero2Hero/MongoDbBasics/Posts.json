@@ -1,0 +1,37 @@
+[
+    {
+        "_id" : ObjectId("53b0758fb7400d51faae284"),
+        "Title" : "My first post",
+        "Content" : "Some content",
+        "Comments" : [
+            {
+                "_id" : 1,
+                "Content" : "Commenting on your first post"
+            }
+            ],
+            "author" : {
+            "ID" : 1,
+            "DisplayName" : "Simon Holmes"
+             }
+           },
+        {
+        "PostID" : 2,
+        "Title" : "My first post",
+        "Content" : "Some content",
+        "Comments" : [
+            {
+                "CommentID" : 2,
+                "Content" : "Commenting on your first post"
+            },
+            {
+                "CommentID" : 3,
+                "Content" : "Also on your second post"
+             }
+            ]
+        },
+        {
+        "PostID" : 3,
+        "Title" : "My third post",
+        "Content" : "Some content",
+        }
+    } 

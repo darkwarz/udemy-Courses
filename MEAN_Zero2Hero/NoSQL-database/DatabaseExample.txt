@@ -1,0 +1,37 @@
+[
+    {
+    "PostId" : 1,
+    "Title" : "My first post",
+    "Content" : "Same Content",
+    "Comments" : [
+    {
+        "CommentId" : 1,
+        "Content" : "Commenting on your first post"
+    }
+   ],
+   "Author" : {
+    "Id" : 1,
+    "DisplayName" : "Jabier Espinal"
+     }
+    },
+    {
+        "PostId" :2,
+        "Title : "My second post",
+        "Content" : "Same content",
+        "Comments" : [
+            {
+            "CommentId" : 2,
+            "Content" : "Commenting on your second post"
+            },
+            {
+            "CommentId" : 3,
+            "Content" : "Also on your second post"
+            }
+         ]
+    },
+    {
+        "PostId" : 2,
+        "Title" : "My third post",
+        "Content" : "Some content"
+    }
+}
