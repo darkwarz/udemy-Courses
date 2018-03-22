@@ -22,3 +22,12 @@ module.exports = {
   open : open,
   get : get
 };
+
+
+
+// var dburl = 'mongodb://' + process.env.ip + ' :27017'
+
+// MongoClient.connect(dburl, function (err, client) {
+
+// _connection = client.db("meanhotel");
+// console.log("DB connection open", client);
