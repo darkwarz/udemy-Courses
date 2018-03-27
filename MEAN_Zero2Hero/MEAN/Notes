@@ -3,10 +3,13 @@ HTML
 <html ng-app> // ng-app needs to be up here   // if its not it will not work for the functions 
 <head>
 <script
-src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>    // angular library
     <meta charset-"utf-8">
     <meta name="viewport" content="width-device-width">
     <title> JS Bin</title>
+    
+Code Example
+    
     <style>
     .red {
         border-color: red;
@@ -16,13 +19,23 @@ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></scr
     }
     </style>
     </head>
+    
+Code Example     
+    
     <body>
-     1 + 2 = {{ 1 + 2 }}
+     1 + 2 = {{ 1 + 2 }}       // forgiving expression
+
+
+                        // will have text hello world and input box for user      
+     
+     <div ng-app> // never want to declar ng-app here
         <p>Hello, {{ user }}</p>
      <input type="text" name="" id="" ng-model="user">
+    </div>
     </body>
     </html>
-    
+
+Code Example    
     
     "ng app = defines the scope of application" ng directive 
     
@@ -30,35 +43,342 @@ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></scr
     <div ng-init="name = 'Tamas' "> </div>  = ng init is a good directive to initliaze verables, boolean int, double - never assign variables using ng init
 
     {{ name }}  displays name variable
+
     < ng-bind = "name"> </p>  does the same thing as code above
     
-    
+Code Example
     
     <div ng-init = " number = 0">  // add button and negative button works with number variable
         <button ng-click="number = number + 1"> +1 </button>
         <button ng-click="number = number - 1"> -1 </button>
-        
+        <p> {{ number }} </p>    
         shows checkbox and if it is checked it will show secret message
 
+
+Code Example
         
         Show me the paragraph <input type="checkbox" ng-model="isChecked">
-        <p ng-if="isChecked"> Secret message </p>  = remove item from DOM, loses styling
-        <p ng-show="isChecked"> Secret message </p> = uses CSS to show and hide
+        <p ng-if="isChecked"> Secret message </p>  = remove item from DOM, loses styling      // loses styling
+        <p ng-show="isChecked"> Secret message </p> = uses CSS to show and hide               // both expresses seem to look like they do the same thing  // keeps styling
             
             //will display incorrect untill number 19 is inputted
-            
+             
             <div ng-init="number =19">
                 <input type="text ng-model="guess">
                 <p ng-hide="guess != number">Correct</p>
                 
                 <p ng-show="guess != number">Incorrect</p>
-            
+    
+    
+    
+Code Example
+ 
+<style>
+.red {
+border-color:red;
+}
+.green {
+border-color:green;                    // dynamatically changes , possibly probralamtic
+}
+ </style>           
 <div ng-init="number = 19">
-    <input type="text" ng-model="guess" ng-class="{red: guess !=number, green: guess == number}">
+    <input type="text" ng-model="guess" ng-class="{red: guess !=number, green: guess == number}"> 
     </div>
+    
+    
+Code example
     
 <div ng-init="numbers = [0,1,2,3,4,5,6,7]">
     <ul>
-        <li ng-repeat="number in numbers" ng-class="{red: $even, odd:
-        $odd}"> {{ number }} -- {{ $even }} -- {{ $odd }} </li>
+        <li ng-repeat="number in numbers" ng-class="{red: $even, odd:$odd}"> {{ number }} -- {{ $even }} -- {{ $odd }} </li>
         
+<div ng-init="names = [']">
+
+
+
+
+Code Example
+
+<div ng-init= "names = ['Smith', 'Smith']">
+    <ul>
+        <li ng-repeat="name in names track by $index"> {{ name }} </li>
+        </ul>
+        
+
+<div ng-init= "names = [{surname:'Smith', firstname: 'Joe'}, {surname: 'Smith', firstname: 'Sue'}]">
+    <ul>
+        <li ng-repeat="name in names"> {{ name.surname }}, {{ name.firstname}} </li>
+        </ul>
+        
+        
+    <ul>
+        <li ng-repeat="name in names"> </li>
+        </ul>
+
+Code Example
+
+<style>
+    .ng-cloak, [ng-cloak], [ng\:cloak] {
+        display: none !important;
+}
+</style>
+</head>
+<body ng-cloak>
+
+<div ng-init="rebels = [
+        {name: 'Luke Skywalker', profession: 'Jedi', weapon: 'lightsaber', age: 19 }, 
+        {name:'Ben Kenobi', profession: 'Jedi', weapon: 'lightsaber', age: 56}, 
+        {name: 'Han Solo', profession: 'smuggler', weapon: 'laser blaster', age: 32 }, 
+        {name: 'Chewbacca', profession: 'pilot', weapon: 'bowcaster', age: 200}];">
+    
+        <ul>
+            <li ng-repeat="rebel in rebels"> {{ rebel.name }} </li>
+            </ul>
+            
+            </div>
+    <script src="https://ajax.googleapis.co/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    </body>
+    </html>
+    
+Code example
+    
+    // <select name="" id="" ng-model="rebel" ng-options="rebel.name group by rebel.weapon for rebel in rebels">
+    </select>
+        <p> you have selected: {{ rebel.name }} ({{ rebel.profession }}) </p>
+
+
+
+        </div>
+        </body>
+        </html>
+        
+        built in features
+        
+Code sample 
+
+        
+            <div ng-init="amount = 1250.505667">
+                <p> {{ amount | currency:"$" }}</p>      // displays with currency
+            </div>
+
+Code sample
+
+            <div ng-init = "amount = 1250505667">
+                <p> {{ -amount | number: 4 }} </p>      // displays number
+            </div>
+            
+Code sample 
+            <div ng-init="string = 'star wars'">
+                <p> {{ string | uppercase }} </p>       // displays upper case letters
+            </div>
+            
+Code Sample
+            <div ng-init="myDate = 1399648945000"> // epoc time value
+            <p> {{ myDate | date: 'medium' }} </p>     // displays May 9, 2014 5:22:25 PM
+            </div>
+            
+Code Sample             
+            <div ng-init="myDate = 1399648945000"> // epoc time value
+            <p> {{ myDate | date: 'yyyy - MMMMM - d (H:m:s)' }} </p>     // displays May 9, 2014 5:22:25 PM
+            </div>
+            
+Code Sample
+            <div ng-init="myArray = [0,1,2,3,4,5]">
+            <p> {{ myArray | limitTo -2 }} </p>        // displays [4,5]
+            </div>
+            
+Code Sample
+        <div ng-init="rebels = [                                                                    // Legend =  -  Bullet
+        {name: 'Luke Skywalker', profession: 'Jedi', weapon: 'lightsaber', age: 19 },              // - Chewbacca(age: 200) is a pilot fighting with a bowcaster
+        {name:'Ben Kenobi', profession: 'Jedi', weapon: 'lightsaber', age: 56},                    // - Ben Kenobi (age: 56 is a jedi fighting with a lightsaber 
+        {name: 'Han Solo', profession: 'smuggler', weapon: 'laser blaster', age: 32 },             // - Han Solo (age: 32) is a smuggler fighting with a laster blaster
+        {name: 'Chewbacca', profession: 'pilot', weapon: 'bowcaster', age: 200}];">                // - Luke Skywalker (age:19) is a Jedi fighting with a lightsaber
+        <ul>                                                                                    // orderBy: '-age' shows reverse order ,orderBy: 'age' shows in order 
+            <li ng-repeat="rebel in rebels | orderBy: '-age'">{{ rebel.name }} (age: {{rebel.age}}) is a {{ rebel.profession }} fighting with a {{rebel.weapon }} </li>  
+
+Code Sample using data above <li ng-repeat= 
+                                                                                                    // - Luke Skywalker(age:19) is a Jedi fighting with a lightsaber    
+                                            
+    <li ng-repeat="rebel in rebels | filter: 'Luke'">{{ rebel.name }} (age: {{rebel.age}}) is a {{ rebel.profession }} fighting with a {{rebel.weapon }} </li>  
+
+
+Code sample 
+
+    <div ng-init="rebels = [                                                                    // Legend =     -  Bullet    [     ]   search input box
+                                                                                                    [          ]
+        {name: 'Luke Skywalker', profession: 'Jedi', weapon: 'lightsaber', age: 19 },              // - Chewbacca(age: 200) is a pilot fighting with a bowcaster
+        {name:'Ben Kenobi', profession: 'Jedi', weapon: 'lightsaber', age: 56},                    // - Ben Kenobi (age: 56 is a jedi fighting with a lightsaber 
+        {name: 'Han Solo', profession: 'smuggler', weapon: 'laser blaster', age: 32 },             // - Han Solo (age: 32) is a smuggler fighting with a laster blaster
+        {name: 'Chewbacca', profession: 'pilot', weapon: 'bowcaster', age: 200}];">                // - Luke Skywalker (age:19) is a Jedi fighting with a lightsaber
+        <ul>                                                                                    // orderBy: '-age' shows reverse order ,orderBy: 'age' shows in order 
+       
+       <input type="text" ng-model="search">   // "search.weapon" narrows search for weapon
+   <ul>
+    <li ng-repeat="rebel in rebels | filter: search">{{ rebel.name }} (age: {{rebel.age}}) is a {{ rebel.profession }} fighting with a {{rebel.weapon }}</li>  
+    </ul>
+    </div>
+    
+Code Sample 
+
+    <div ng-init="rebels = [                                                                    // Legend =     -  Bullet    [     ]   search input box
+                                                                                                Weapon filter:    [          ]
+                                                                                                Free text search: [          ] 
+        {name: 'Luke Skywalker', profession: 'Jedi', weapon: 'lightsaber', age: 19 },              // - Chewbacca(age: 200) is a pilot fighting with a bowcaster
+        {name:'Ben Kenobi', profession: 'Jedi', weapon: 'lightsaber', age: 56},                    // - Ben Kenobi (age: 56 is a jedi fighting with a lightsaber 
+        {name: 'Han Solo', profession: 'smuggler', weapon: 'laser blaster', age: 32 },             // - Han Solo (age: 32) is a smuggler fighting with a laster blaster
+        {name: 'Chewbacca', profession: 'pilot', weapon: 'bowcaster', age: 200}];">                // - Luke Skywalker (age:19) is a Jedi fighting with a lightsaber
+        <ul>                                                                                    // orderBy: '-age' shows reverse order ,orderBy: 'age' shows in order 
+                                                                                                // updates in real time
+       Weapon filter: <input type"tet" ng-model="search.weapon">
+       <p>Free text search: <input type="text" ng-model="search.$"</p>
+   <ul>
+    <li ng-repeat="rebel in rebels | filter: search">{{ rebel.name }} (age: {{rebel.age}}) is a {{ rebel.profession }} fighting with a {{rebel.weapon }}</li>  
+    </ul>
+    </div>
+    
+    Controlers scope and controllers  (38)
+ 
+Code sample 
+
+    <html ng-app="myApp">   // created a angular module
+    <head>
+    <script>
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script>
+        angular.module('myApp', []).controller('MyController', MyController);   // myController set as a variable // module set syntax
+        
+            function MyController($scope) {
+                $scope.name = 'Jabier';
+            }
+                                                                                    // Hello , Jabier
+            </script>
+            </head>
+            <body>
+            <div ng-controller="MyController">
+                Hello, {{ name }}!
+            </div>
+            </body>
+
+Code Sample
+            -Luke Skywalker is a Jedi fighting with a lightsaber.
+            -Ben Kenobi is a Jedi fighting with a lightsaber.
+            -Han Solo is a smuggler fighting with a laser blaster.
+            -Chewbaca is a pilot fighting with a bowcaster.
+            
+           
+            Code represented output above ^
+    
+    <html ng-app="myApp">   // created a angular module
+    <head>
+    <script>
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script>
+        angular.module('myApp', []).controller('MyController', MyController);   // myController set as a variable // module set syntax
+        
+            function MyController($scope) {
+                $scope.rebels = [
+                                {name: 'Luke Skywalker', profession: 'Jedi', weapon: 'lightsaber'},              
+                                {name:'Ben Kenobi', profession: 'Jedi', weapon: 'lightsaber'},                    
+                                {name: 'Han Solo', profession: 'smuggler', weapon: 'laser blaster'},             
+                                {name: 'Chewbacca', profession: 'pilot', weapon: 'bowcaster'},
+                              ];
+                       }
+            </script>
+            </head>
+            <body>
+            <div ng-controller="MyController">
+                <ul>
+                     <li ng-repeat="rebel in rebels">{{ rebel.name }} is a {{ rebel.profession }} fighting with a {{rebel.weapon }}.</li>  
+                </ul>
+            </div>
+            </body>
+            
+            
+Code Sample 
+
+    0
+[+1]  [-1]
+[+5]  [-5]
+
+  <html ng-app="myApp">   // created a angular module
+    <head>
+    <script>
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script>
+        angular.module('myApp', []).controller('MyController', MyController);   // myController set as a variable // module set syntax
+        
+            function MyController($scope) {
+                $scope.number = 0;
+                $scope.increment = function() {
+                    $scope.number = $scope.number + 1;
+                }
+                
+                $scope.decrement = function() {
+                    $scope.number = $scope.number -1;
+                }
+                    $scope.increment = function() {
+                    $scope.number = $scope.number + 5;
+                }
+                
+                $scope.decrement = function() {
+                    $scope.number = $scope.number - 5;
+                }
+            }
+            </script>
+            </head>
+            <body>
+            <div ng-controller="MyController">
+                {{ number }}
+                <p>
+                    <button ng-click="increment(1)">+1</button>
+                    <button ng-click="decrement(1)">-1</button>
+                    <button ng-click="increment(5)">+5</button>
+                    <button ng-click="decrement(5)">-5</button>
+                </p>
+                </ul>
+            </div>
+            </body>
+            
+Code Sample  = this one is good practice
+
+<html ng-app="myApp">   // created a angular module
+    <head>
+    <script>
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script>
+        angular.module('myApp', [])
+        .controller('MyController', MyController);   // myController set as a variable // module set syntax
+        .controller(MySecondController', MySecondController)
+        
+            function MyController($scope) {
+                var vm = this;
+                vm.name = 'Jabier';
+                }
+            function MySecondController($scope) {
+                var vm = this;
+                vm.name = 'Espinal',
+            }
+            
+            </script>
+            </head>
+            <body>
+            <div ng-controller="MyController as MyCtrl">
+            <div ng-controller="MySecondController as MySecondCtrl">
+                { MyCtrl.name }}
+                {{ MySecondCtrl.name }}
+                </div>
+            </div>
+            </body>
+             
