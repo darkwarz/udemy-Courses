@@ -9,13 +9,14 @@ router
   .route('/hotels')
   .get(ctrlHotels.hotelsGetAll);
   .post(ctrlHotels.hotelsAddOne);
-  
 
 router
   .route('/hotels/:hotelId')
   .get(ctrlHotels.hotelsGetOne);
-  .put(ctrlHotels.hotelsGetOne);
-  .delete(ctrlHotels.hotelsDeleteOne);
+
+router
+  .route('/hotels')
+  .post(ctrlHotels.hotelsAddOne);
   
   //Review routes
   router
@@ -25,8 +26,6 @@ router
   
   router
   .route('/hotels/:hotelId/reviews/:reviewId')``
-  .get(ctrlReviews.reviewsGetOne)
-  .put(ctrlReviews.reviewsUpdateOne)
-  .delete(ctrlReviews.reviewsDeleteOne);
+  .get(ctrlReviews.reviewsGetOne);
 
 module.exports = router;

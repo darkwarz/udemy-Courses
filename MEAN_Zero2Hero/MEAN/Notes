@@ -1,0 +1,64 @@
+HTML
+<!DOCTYPE HTML>
+<html ng-app> // ng-app needs to be up here   // if its not it will not work for the functions 
+<head>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <meta charset-"utf-8">
+    <meta name="viewport" content="width-device-width">
+    <title> JS Bin</title>
+    <style>
+    .red {
+        border-color: red;
+    }
+    .green {
+        border: green;
+    }
+    </style>
+    </head>
+    <body>
+     1 + 2 = {{ 1 + 2 }}
+        <p>Hello, {{ user }}</p>
+     <input type="text" name="" id="" ng-model="user">
+    </body>
+    </html>
+    
+    
+    "ng app = defines the scope of application" ng directive 
+    
+    
+    <div ng-init="name = 'Tamas' "> </div>  = ng init is a good directive to initliaze verables, boolean int, double - never assign variables using ng init
+
+    {{ name }}  displays name variable
+    < ng-bind = "name"> </p>  does the same thing as code above
+    
+    
+    
+    <div ng-init = " number = 0">  // add button and negative button works with number variable
+        <button ng-click="number = number + 1"> +1 </button>
+        <button ng-click="number = number - 1"> -1 </button>
+        
+        shows checkbox and if it is checked it will show secret message
+
+        
+        Show me the paragraph <input type="checkbox" ng-model="isChecked">
+        <p ng-if="isChecked"> Secret message </p>  = remove item from DOM, loses styling
+        <p ng-show="isChecked"> Secret message </p> = uses CSS to show and hide
+            
+            //will display incorrect untill number 19 is inputted
+            
+            <div ng-init="number =19">
+                <input type="text ng-model="guess">
+                <p ng-hide="guess != number">Correct</p>
+                
+                <p ng-show="guess != number">Incorrect</p>
+            
+<div ng-init="number = 19">
+    <input type="text" ng-model="guess" ng-class="{red: guess !=number, green: guess == number}">
+    </div>
+    
+<div ng-init="numbers = [0,1,2,3,4,5,6,7]">
+    <ul>
+        <li ng-repeat="number in numbers" ng-class="{red: $even, odd:
+        $odd}"> {{ number }} -- {{ $even }} -- {{ $odd }} </li>
+        
