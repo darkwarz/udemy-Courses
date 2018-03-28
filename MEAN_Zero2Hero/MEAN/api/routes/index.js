@@ -14,10 +14,6 @@ router
   .route('/hotels/:hotelId')
   .get(ctrlHotels.hotelsGetOne);
 
-router
-  .route('/hotels')
-  .post(ctrlHotels.hotelsAddOne);
-  
   //Review routes
   router
   .route('/hotels/:hotelId/reviews')
