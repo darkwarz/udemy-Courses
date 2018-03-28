@@ -70,13 +70,13 @@ module.exports.reviewsAddOne = function(req, res){
     .select('reviews')
     .exec(function(err, doc) {
         var response = {
-        .status(200)
-        .message : []
+        status:200,
+        message : []
     };
     if (err) {
         console.log("Error finding hotel");
         response.status = 500;
-        reponse.message = err;
+        response.message = err;
     } else if(!doc) {
         console.log("Hotel id not found in database", id);
         response.status = 404;
@@ -92,3 +92,4 @@ module.exports.reviewsAddOne = function(req, res){
         .json(response.message);
     }
     });
+};
