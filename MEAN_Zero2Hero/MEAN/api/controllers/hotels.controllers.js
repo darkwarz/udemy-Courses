@@ -2,7 +2,10 @@ var mongoose = require('mongoose');
 var Hotel = mongoose.model('Hotel');
 
 module.exports.hotelsGetAll = function(req, res) {
-
+  console.log('Requested by: ' + req.user);
+  console.log('GET the hotels');
+  console.log(req.query);
+  
   var offset = 0;
   var count = 5;
   var maxCount = 10;
@@ -49,7 +52,6 @@ Hotel
         .json(hotels);
     }
   });
-
 
 module.exports.hotelsGetOne = function(req, res) {
   var hotelId = req.params.hotelId;
