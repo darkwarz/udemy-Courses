@@ -1,3 +1,4 @@
+/* global angular */
 angular.module('meanhotel').factory('hotelDataFactory', hotelDataFactory);
 
 function hotelDataFactory($http) {

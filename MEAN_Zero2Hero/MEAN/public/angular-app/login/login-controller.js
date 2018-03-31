@@ -1,3 +1,4 @@
+/* global angular */
 angular.module('meanhotel').controller('LoginController', LoginController);
 
 function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
@@ -6,12 +7,12 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
     vm.isLoggedIn = function() {
         if (AuthFactory.isLoggedIn) {
             return true;
-        } else {
+        }   else {
             return false;
         }
     };
 
- vm.login = function() {
+    vm.login = function() {
      if (vm.username && vm.password) {
          var user = {
              username: vm.username,

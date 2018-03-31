@@ -1,4 +1,5 @@
-angular.module('meanhotel').directive('mhNavigation'), mhNavigation);
+/* global angular */
+angular.module('meanhotel').directive('mhNavigation', mhNavigation);
 
 function mhNavigation() {
     return {

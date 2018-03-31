@@ -1,3 +1,4 @@
+/* global angular */
 angular.module('meanhotel').controller('HotelController', HotelController);
 
 function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFactory, jwtHelper) {

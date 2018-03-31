@@ -17,11 +17,11 @@ router
   .put(ctrlHotels.hotelsUpdateOne);
   
   
-  //Review routes
+  //Review routes ctrlUsers.authenticate,- .put(ctrlReviews) //.authenticate, ctrlReviews.
   router
   .route('/hotels/:hotelId/reviews')
   .get(ctrlReviews.reviewsGetAll)
-  .post(ctrlUsers.authenticate,ctrlReviews.reviewsAddOne);
+  .post(ctrlReviews.reviewsAddOne);
   
   router
   .route('/hotels/:hotelId/reviews/:reviewId')

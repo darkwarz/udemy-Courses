@@ -1,3 +1,4 @@
+/*global angular HotelsController HotelController RegisterController*/
 angular.module('meanhotel', ['ngRoute', 'angular-jwt']).config(config).run(run);
 
 function config($httpProvider, $routeProvider) {
@@ -5,7 +6,7 @@ function config($httpProvider, $routeProvider) {
     
     $routeProvider
     .when('/', {
-        templateUrl: 'angular-app/main.html',
+        templateUrl: 'angular-app/main/main.html',
         access: {
             restricted: false
         }

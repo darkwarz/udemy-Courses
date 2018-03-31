@@ -1,6 +1,7 @@
+/* global angular */
 angular.module('meanhotel').controller('RegisterController', RegisterController);
 
-function RegisterController() {
+function RegisterController($http) {
     var vm = this;
 
     vm.register = function() {

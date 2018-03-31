@@ -1,6 +1,7 @@
-angular.module('meanhotel').factory('AuthIntercepter', AuthInterceptor);
+/* global angular */
+angular.module('meanhotel').factory('AuthInterceptor', AuthInterceptor);
 
-function AuthIntercepter($q, $window, AuthFactory) {
+function AuthInterceptor($location, $q, $window, AuthFactory) {
  return {
      request: request,
      response: response,

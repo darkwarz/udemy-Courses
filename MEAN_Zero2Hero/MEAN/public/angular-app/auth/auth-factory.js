@@ -1,3 +1,4 @@
+/* global angular */
 angular.module('meanhotel').factory('AuthFactory', AuthFactory);
 
 function AuthFactory() {
